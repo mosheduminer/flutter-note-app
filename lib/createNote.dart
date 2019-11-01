@@ -8,9 +8,12 @@ import 'package:notes_app/markdown.dart';
 class CreateNotePage extends StatelessWidget {
   static const route = "/editNote";
 
+  final String noteName;
+
+  CreateNotePage(this.noteName);
+
   @override
   Widget build(BuildContext context) {
-    final String noteName = ModalRoute.of(context).settings.arguments;
     return CreateNote(noteName);
   }
 
@@ -37,7 +40,7 @@ class _CreateNotePageState extends State<CreateNote> {
   TextEditingController _titleController = TextEditingController();
   TextEditingController _inputController = TextEditingController();
 
-  String _title = "New Note";
+  String _title = new DateTime.now().toString();
   String _input = "";
 
   ShowMarkdown showMarkdown = ShowMarkdown("");
@@ -75,6 +78,10 @@ class _CreateNotePageState extends State<CreateNote> {
   }
 
   Widget _titleDialogBuilder(BuildContext context) {
+    _titleController.text = _title;
+    _titleController.selection = TextSelection(
+      baseOffset: 0, extentOffset: _titleController.text.length
+    );
     return AlertDialog(
       title: Text(
           "Title"
@@ -87,6 +94,7 @@ class _CreateNotePageState extends State<CreateNote> {
             SizedBox(
               width: MediaQuery.of(context).size.width * 0.50,
               child: TextFormField(
+                autofocus: true,
                 controller: _titleController,
                 textCapitalization: TextCapitalization.words,
                 validator: _validator,

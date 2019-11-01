@@ -7,10 +7,12 @@ import 'package:notes_app/files.dart';
 
 class ReadNote extends StatelessWidget {
   static const route = '/readNote';
+  final String noteName;
+
+  ReadNote(this.noteName);
 
   @override
   Widget build(BuildContext context) {
-    final String noteName = ModalRoute.of(context).settings.arguments;
     return FileView(noteName);
   }
 }

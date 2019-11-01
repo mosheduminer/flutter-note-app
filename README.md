@@ -4,11 +4,11 @@ A flutter app supporting Markdown.
 
 ### Current Features:
 + Create notes
-+ Swipe to see markdown while Writing notes
++ Swipe to see markdown while writing notes
 + Read notes
 + Edit/update notes
++ Delete Notes
 
 ### In The Works:
-+ Delete Notes
 + [Solid](https://solid.inrupt.com/) Pod Integration
-+ Generate PDF from your notes (maybe)
++ Generate HTML or PDF from your notes (maybe)
